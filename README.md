@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ## Configuracion de API's
 
-Lo primero que debemo hacer es registrar un aplicacion con cada proveedor, obtener las configuraiones y llaves de acceso.
+Lo primero que debemos hacer es registrar un aplicacion con cada proveedor, obtener las configuraiones y llaves de acceso.
 
 **Google**
 
