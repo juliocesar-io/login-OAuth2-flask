@@ -23,14 +23,14 @@ estándares del protocolo.
 """
 
 # Google
-os.environ["GOOGLE_LOGIN_CLIENT_ID"] = "***REMOVED***"
-os.environ["GOOGLE_LOGIN_CLIENT_SECRET"] = "***REMOVED***"
+os.environ["GOOGLE_LOGIN_CLIENT_ID"] = "100401588956-jjis4v4941okh7n90flurmdmq51bunt3.apps.googleusercontent.com"
+os.environ["GOOGLE_LOGIN_CLIENT_SECRET"] = "zs1ZVhNWJazowh7UBF0GyBLZ"
 # Linkedin
-os.environ["LINKEDIN_LOGIN_CLIENT_ID"] = "***REMOVED***"
-os.environ["LINKEDIN_LOGIN_CLIENT_SECRET"] = "***REMOVED***"
+os.environ["LINKEDIN_LOGIN_CLIENT_ID"] = "78dhvcrgo042b1"
+os.environ["LINKEDIN_LOGIN_CLIENT_SECRET"] = "RKHc0mxYtvK5ZtZ4"
 # Facebook
-os.environ["FACEBOOK_LOGIN_CLIENT_ID"] = "***REMOVED***"
-os.environ["FACEBOOK_LOGIN_CLIENT_SECRET"] = "***REMOVED***"
+os.environ["FACEBOOK_LOGIN_CLIENT_ID"] = "1654434261286964"
+os.environ["FACEBOOK_LOGIN_CLIENT_SECRET"] = "8fba8b539bf66fcc29cd92a63efef146"
 
 
 
