@@ -8,32 +8,32 @@ class OAuth2Login(object):
   """
   def __init__(self, app=None):
     """
-    Si tiene el parametro 'app', se envia como referencia a la funcion 'init_app'
+    Si tiene el parámetro 'app', se envía como referencia a la función 'init_app'
     
-    :param app: Es un parametro opcional, contiene un diccionario con las configuraciones de la app
+    :param app: Es un parámetro opcional, contiene un diccionario con las configuraciones de la app
     """
     if app:
       self.init_app(app)
 
   def get_config(self, app, name, default_value=None):
     """
-    Metodo que obtiene los tokens de cada uno de los proveedores de las configuraciones al la app
+    Método que obtiene los tokens de cada uno de los proveedores de las configuraciones al la app
     usando el contexto de la instacia llamandolo por su prefijo definido en la variable 'config_prefix
     
     :param app:  Arreglo de configuraciones
     :param name: Nombre de la llave en el arreglo
     :param default_value: En caso que no exista el valor por defecto en None.
-    :return: retorna el valor en el diccionario 'config' correpondiente al indice en 'name'
+    :return: retorna el valor en el diccionario 'config' correpondiente al índice en 'name'
     """
     return app.config.get(self.config_prefix + name, default_value)
 
   def init_app(self, app):
     """
     
-    Con la ayuda de la funcion 'get_config' esta funcion obtiene cada uno de las tokens de los 
-    proveedores y otras configuraciones como los permisos del API(scope), el protocolo y el path de redireccion
+    Con la ayuda de la función 'get_config' esta funcion obtiene cada uno de las tokens de los 
+    proveedores y otras configuraciones como los permisos del API(scope), el protocolo y el path de redirección
 
-    :param app: Es un parametro opcional, contiene un diccionario con las configuraciones de la app
+    :param app: Es un parámetro opcional, contiene un diccionario con las configuraciones de la app
     """
     self.client_id = self.get_config(app, "CLIENT_ID")
     self.client_secret = self.get_config(app, "CLIENT_SECRET")
@@ -63,7 +63,7 @@ class OAuth2Login(object):
 
   def session(self):
     """
-    Crea una sesion con el token del proveedor, la url de redirecion y los permisos del API. 
+    Crea una sesión con el token del proveedor, la url de redirección y los permisos del API. 
     """
     return OAuth2Session(
       self.client_id,
@@ -73,9 +73,9 @@ class OAuth2Login(object):
 
   def authorization_url(self, **kwargs):
     """
-    Esta funcion obtiene la sesion en el contexto actual, la almacena y genera una url 
+    Esta función obtiene la sesión en el contexto actual, la almacena y genera una url 
     de autorizacion utlizando el endpoint del proveedor utilizando el valor de la variable 'auth_url' 
-    de la clase instaciada.
+    de la clase instanciada.
     """
     sess = self.session()
     auth_url, state = sess.authorization_url(self.auth_url, **kwargs)
@@ -85,10 +85,10 @@ class OAuth2Login(object):
   def get_token(self):
 
     """
-    Esta funcion obtiene el token de acceso utilizando el endpoint definido en 'token_url' de la clase instanciada
+    Esta función obtiene el token de acceso utilizando el endpoint definido en 'token_url' de la clase instanciada
     y la llave secreta del API, luego con el endpoint 'profile_url' hace el intento de obtener una respuesta del API 
-    en JSON con los atributos del usuario utilzando la funcion 'get_profile', si es exitoso se pasa con callback 
-    la funcion 'login_success', caso contrario se pasa a la funcion 'login_failure'.
+    en JSON con los atributos del usuario utilzando la funcion 'get_profile'. Si es exitoso, se pasa con callback 
+    la función 'login_success', en caso contrario se pasa a la función 'login_failure'.
     
     """
     sess = self.session()
@@ -116,21 +116,21 @@ class OAuth2Login(object):
 
   def login_success(self, f):
     """
-    Funcion callback de login exitoso.
+    Función callback de login exitoso.
     """
     self.login_success_func = f
     return f
 
   def login_failure(self, f):
     """
-    Funcion callback de login fallido.
+    Función callback de login fallido.
     """
     self.login_failure_func = f
     return f
 
   def get_profile(self, sess):
     """
-    Funcion para obtener datos del usuario y retonarlos como JSON.
+    Función para obtener datos del usuario y retornarlos como JSON.
     """
     resp = sess.get(self.profile_url)
     resp.raise_for_status()
