@@ -3,7 +3,8 @@
 ### DIVISIÓN DE INGENIERÍA Y TECNOLOGÍA
 ### DESARROLLO DE APLICACIONES WEB
 ### Ejercicio de log-in con terceros
-**Andrea Puente | Juan Issac | Julio César | Luca Grossmann**
+#### Andrea Puente - 317000 | Juan Issac - 350629 
+#### Julio César   - 568095 | Luca Grossmann - 561080
 
 
 Login-OAuth2-Flask
