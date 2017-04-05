@@ -305,7 +305,7 @@ facebook_login = FacebookLogin(app)
 ```
 
 
-Con estan instacias tenemos acceso a todos los métodos del protocolo OAuth 2.0, definimos los enlaces para hacer el login y las URLS de autorización para empepzar con el primer paso del protocolo explicado en la sección [Implementacion Protocolo OAuth 2.0]().
+Con estan instancias tenemos acceso a todos los métodos del protocolo OAuth 2.0, definimos los enlaces para hacer el login y las URLS de autorización para empepzar con el primer paso del protocolo explicado en la sección [Implementacion Protocolo OAuth 2.0]().
 
 ```python
 @app.route("/")
@@ -337,6 +337,8 @@ def login_failure(e):
 Esta funciones se ejecutan al final del los pasos de protocolo, dependiendo de su flujo exitoso o fallido, cada proveedor tiene la opción de responder a su manera.
 
 ## Resultados
+
+En las siguientes capturas se muestra el resultado de cada paso para cada uno de los proveedores, véase los rectangulos resaltados con rojo, alli se puede identificar en las URLs algunos de los parámetros y valores generados por las funciones expuestas en este documento.
 
 Respuesta URL raíz:
 
