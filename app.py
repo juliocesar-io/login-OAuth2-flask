@@ -6,19 +6,19 @@ from proveedor import GoogleLogin, LinkedInLogin, FacebookLogin
 
 """
 
-Definicion de variables de entorno (Esto no deberia estar expuesto en un archivo, debido a que
-son llaves privadas, pero para el caso de prueba de ejecucion de esta practica, se definen
-los token de los APIs de proveedores acontinuacion).
+Definición de variables de entorno (Esto no debería estar expuesto en un archivo, debido a que
+son llaves privadas, pero para el caso de prueba de ejecución de esta practica, se definen
+los token de los APIs de proveedores a continuación).
 
 
-El protocolo a utilizar para hacer login con los 3 provedores sera OAuth 2.0, es decir que el proceso
+El protocolo a utilizar para hacer login con los 3 provedores sera ** OAuth 2.0 **, es decir que el proceso
 para cada uno de los proovedores sera el mismo y con cada uno de ellos usaremos un id del cliente y una llave
 secreta.
 
-Lo unico que varia en cada proveedor son los 'endpoints' o urls donde se hacen las peticiones, 
+Lo único que varía en cada proveedor son los 'endpoints' o urls donde se hacen las peticiones, 
 vease el directorio 'proveedor' y vera que cada uno de estos tiene sus atributos respectivos,
 cada proveedor hereda de la clase base 'OAuth2Login' que tiene la definicion de los procedimientos 
-estandares del protocolo.
+estándares del protocolo.
 
 """
 
@@ -68,8 +68,8 @@ facebook_login = FacebookLogin(app)
 
 """
 En la ruta raiz se retorna un HTML con enlaze a las 3 opciones de login, mateniendo el minimalismo, se usa la 
-funcion 'format' para hacer render de las urls de autorizacion en su orden definicion en los parametros de esta 
-y la aparicion de las llaves en los hrefs.
+funcion 'format' para hacer render de las urls de autorizacion en su orden definición en los parámetros de esta 
+y la aparición de las llaves en los hrefs.
 """
 
 
@@ -84,10 +84,10 @@ def index():
 
 
 """
-Luego que alguna opcion de login es selecionada se responde con una fallo o con exito 
+Luego que alguna opción de login es selecionada se responde con una fallo o con exito 
 para el cual se responde con el JSON retornado por el API de cada proveedor utilizando la funcion 'jsonify'
 
-Las funciones acontinacion son implementaciones de la funciones login_success y login_failure definida en la 
+Las funciones a continación son implementaciones de la funciones login_success y login_failure definidas en la 
 clase base OAuth2Login, con esto podemos cambiar el comportamiento en la respuesta dependiendo de cada proveedor
 almacenarlo en una base de datos y mostrar un perfil, foto etc. Pero para el objetivo de esta practica, solo se muestra 
 la respuesta exitosa con la informacion del usuario (almacenada en la variable 'profile') en formato JSON tal cual como 
