@@ -333,7 +333,7 @@ Respuesta URL raiz:
 ![Imgur](http://i.imgur.com/nsTZ9X9.png)
 
 
-En las siguientes capturas se muestra el resultado de cada paso para cada uno de los proveedores, en los rectangulos resaltados con rojo se pueden identificar algunos las parametros y valores en las URLS, generadas por las funciones expuestas en este documento. 
+En las siguientes capturas se muestra el resultado de cada paso para cada uno de los proveedores, véase los rectangulos resaltados con rojo, alli se puede identificar algunos las parametros y valores en las URLS, generados por las funciones expuestas en este documento. 
 
 
 - **Google**
