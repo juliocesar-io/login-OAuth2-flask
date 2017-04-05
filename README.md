@@ -331,9 +331,13 @@ Esta funciones se ejecutan al final del los pasos de protocolo, dependiendo de s
 Respuesta URL raiz:
 
 ![Imgur](http://i.imgur.com/nsTZ9X9.png)
-- **Google**
 
-Redirecion a Login con **Google**, observar la URL en los rectangulos se peude apreciar los parametros genrados por la funcion authorization_url. 
+
+En las siguientes capturas se muestra el resultado de cada paso para cada uno de los proveedores, en los rectangulos resaltados con rojo se pueden identificar algunos las parametros y valores en las URLS, generadas por las funciones expuestas en este documento. 
+
+
+- **Google**
+ 
 ![Imgur](http://i.imgur.com/JhMvblS.png)
 
 Resultado con la informacion del usuario
