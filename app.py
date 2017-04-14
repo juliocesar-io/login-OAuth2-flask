@@ -6,31 +6,28 @@ from proveedor import GoogleLogin, LinkedInLogin, FacebookLogin
 
 """
 
-Definición de variables de entorno (Esto no debería estar expuesto en un archivo, debido a que
-son llaves privadas, pero para el caso de prueba de ejecución de esta practica, se definen
-los token de los APIs de proveedores a continuación).
-
-
 El protocolo a utilizar para hacer login con los 3 provedores sera ** OAuth 2.0 **, es decir que el proceso
 para cada uno de los proovedores sera el mismo y con cada uno de ellos usaremos un id del cliente y una llave
 secreta.
 
-Lo único que varía en cada proveedor son los 'endpoints' o urls donde se hacen las peticiones, 
+Lo único que varía en cada proveedor son los 'endpoints' o urls donde se hacen las peticiones,
 vease el directorio 'proveedor' y vera que cada uno de estos tiene sus atributos respectivos,
-cada proveedor hereda de la clase base 'OAuth2Login' que tiene la definicion de los procedimientos 
+cada proveedor hereda de la clase base 'OAuth2Login' que tiene la definicion de los procedimientos
 estándares del protocolo.
 
 """
 
+#Definición de variables de entorno, usa aqui tus API keys.
+
 # Google
-os.environ["GOOGLE_LOGIN_CLIENT_ID"] = "100401588956-jjis4v4941okh7n90flurmdmq51bunt3.apps.googleusercontent.com"
-os.environ["GOOGLE_LOGIN_CLIENT_SECRET"] = "zs1ZVhNWJazowh7UBF0GyBLZ"
+os.environ["GOOGLE_LOGIN_CLIENT_ID"] = "-"
+os.environ["GOOGLE_LOGIN_CLIENT_SECRET"] = "-"
 # Linkedin
-os.environ["LINKEDIN_LOGIN_CLIENT_ID"] = "78dhvcrgo042b1"
-os.environ["LINKEDIN_LOGIN_CLIENT_SECRET"] = "RKHc0mxYtvK5ZtZ4"
+os.environ["LINKEDIN_LOGIN_CLIENT_ID"] = "-"
+os.environ["LINKEDIN_LOGIN_CLIENT_SECRET"] = "-"
 # Facebook
-os.environ["FACEBOOK_LOGIN_CLIENT_ID"] = "1654434261286964"
-os.environ["FACEBOOK_LOGIN_CLIENT_SECRET"] = "8fba8b539bf66fcc29cd92a63efef146"
+os.environ["FACEBOOK_LOGIN_CLIENT_ID"] = "-"
+os.environ["FACEBOOK_LOGIN_CLIENT_SECRET"] = "-"
 
 
 
@@ -42,7 +39,7 @@ app.config.update(
 )
 
 """
-Se crea un tupla de llave-valor que luego se itera en el diccionario app.config donde se alamcena 
+Se crea un tupla de llave-valor que luego se itera en el diccionario app.config donde se alamcena
 el par de tokens de cada proveedor para uso gobal en la app.
 """
 
@@ -67,8 +64,8 @@ facebook_login = FacebookLogin(app)
 # Definicion de la ruta raiz
 
 """
-En la ruta raiz se retorna un HTML con enlaze a las 3 opciones de login, mateniendo el minimalismo, se usa la 
-funcion 'format' para hacer render de las urls de autorizacion en su orden definición en los parámetros de esta 
+En la ruta raiz se retorna un HTML con enlaze a las 3 opciones de login, mateniendo el minimalismo, se usa la
+funcion 'format' para hacer render de las urls de autorizacion en su orden definición en los parámetros de esta
 y la aparición de las llaves en los hrefs.
 """
 
@@ -84,13 +81,13 @@ def index():
 
 
 """
-Luego que alguna opción de login es selecionada se responde con una fallo o con exito 
+Luego que alguna opción de login es selecionada se responde con una fallo o con exito
 para el cual se responde con el JSON retornado por el API de cada proveedor utilizando la funcion 'jsonify'
 
-Las funciones a continación son implementaciones de la funciones login_success y login_failure definidas en la 
+Las funciones a continación son implementaciones de la funciones login_success y login_failure definidas en la
 clase base OAuth2Login, con esto podemos cambiar el comportamiento en la respuesta dependiendo de cada proveedor
-almacenarlo en una base de datos y mostrar un perfil, foto etc. Pero para el objetivo de esta practica, solo se muestra 
-la respuesta exitosa con la informacion del usuario (almacenada en la variable 'profile') en formato JSON tal cual como 
+almacenarlo en una base de datos y mostrar un perfil, foto etc. Pero para el objetivo de esta practica, solo se muestra
+la respuesta exitosa con la informacion del usuario (almacenada en la variable 'profile') en formato JSON tal cual como
 lo envia el API del proveedor.
 
 """
